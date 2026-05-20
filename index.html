@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mantasha Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Fraunces:wght@700;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root{
+--cream:#fdf8f2;
+--white:#ffffff;
+--ink:#384246;
+--muted:#66627c;
+--border:#90c6e4;
+--accent:#2165a0;
+--card:#ffffff;
+--tag-bg:#f5ede3;
+--tag-color:#3abac8;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:var(--cream);
+color:var(--ink);
+overflow-x:hidden;
+}
+
+.port{
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+.nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:1.1rem 2.5rem;
+background:rgba(253,248,242,0.92);
+border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:100;
+backdrop-filter:blur(10px);
+}
+
+.nav-logo{
+font-family:'Fraunces',serif;
+font-size:1.25rem;
+font-weight:900;
+color:var(--accent);
+}
+
+.nav-links{
+display:flex;
+gap:2rem;
+}
+
+.nav-links a{
+text-decoration:none;
+color:var(--muted);
+font-size:0.82rem;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+}
+
+.nav-links a:hover{
+color:var(--accent);
+}
+
+/* HERO */
+
+.hero-wrap{
+background:var(--white);
+border-bottom:1px solid var(--border);
+}
+
+.hero{
+max-width:950px;
+margin:auto;
+padding:5rem 2.5rem;
+display:grid;
+grid-template-columns:1fr auto;
+align-items:center;
+gap:3rem;
+}
+
+.hero-tag{
+display:inline-flex;
+align-items:center;
+gap:0.5rem;
+background:var(--tag-bg);
+color:var(--tag-color);
+padding:0.35rem 0.85rem;
+border-radius:999px;
+font-size:0.7rem;
+font-weight:700;
+letter-spacing:0.08em;
+text-transform:uppercase;
+margin-bottom:1.4rem;
+}
+
+.blink{
+width:6px;
+height:6px;
+border-radius:50%;
+background:var(--accent);
+animation:blink 1.4s infinite;
+}
+
+@keyframes blink{
+0%,100%{opacity:1;}
+50%{opacity:0;}
+}
+
+h1{
+font-family:'Fraunces',serif;
+font-size:clamp(3rem,7vw,4.8rem);
+line-height:1;
+letter-spacing:-0.05em;
+margin-bottom:0.8rem;
+}
+
+.hero-sub{
+font-family:'Fraunces',serif;
+font-size:1.3rem;
+color:var(--accent);
+margin-bottom:1rem;
+}
+
+.hero-desc{
+max-width:480px;
+line-height:1.9;
+font-size:0.92rem;
+color:var(--muted);
+margin-bottom:2rem;
+}
+
+.hero-btns{
+display:flex;
+gap:0.8rem;
+flex-wrap:wrap;
+}
+
+.btn-fill,
+.btn-outline{
+padding:0.82rem 1.45rem;
+border-radius:999px;
+font-size:0.82rem;
+font-weight:600;
+cursor:pointer;
+transition:0.2s;
+border:none;
+}
+
+.btn-fill{
+background:var(--accent);
+color:#fff;
+}
+
+.btn-fill:hover{
+transform:translateY(-2px);
+opacity:0.92;
+}
+
+.btn-outline{
+background:transparent;
+border:1.5px solid var(--border);
+}
+
+.btn-outline:hover{
+border-color:var(--accent);
+}
+
+.hero-visual{
+width:320px;
+height:320px;
+border-radius:50%;
+background:white;
+border:5px solid white;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+.hero-visual img{
+width:100%;
+height:100%;
+object-fit:cover;
+border-radius:50%;
+display:block;
+}
+
+/* STATS */
+
+.stats{
+display:flex;
+background:var(--white);
+border-top:1px solid var(--border);
+border-bottom:1px solid var(--border);
+}
+
+.stat{
+flex:1;
+text-align:center;
+padding:1.3rem 1rem;
+border-right:1px solid var(--border);
+}
+
+.stat:last-child{
+border-right:none;
+}
+
+.stat-num{
+font-family:'Fraunces',serif;
+font-size:1.8rem;
+font-weight:900;
+color:var(--accent);
+}
+
+.stat-label{
+margin-top:0.25rem;
+font-size:0.68rem;
+letter-spacing:0.06em;
+text-transform:uppercase;
+color:var(--muted);
+}
+
+/* SECTION */
+
+.section{
+max-width:950px;
+margin:auto;
+padding:4rem 2.5rem;
+}
+
+.sec-header{
+display:flex;
+align-items:center;
+gap:1rem;
+margin-bottom:2rem;
+}
+
+.sec-title{
+font-family:'Fraunces',serif;
+font-size:1.7rem;
+font-weight:900;
+}
+
+.sec-line{
+flex:1;
+height:1px;
+background:var(--border);
+}
+
+.sec-count{
+font-size:0.7rem;
+color:var(--muted);
+letter-spacing:0.08em;
+}
+
+/* PROJECTS */
+
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:1rem;
+}
+
+.pcard{
+background:var(--card);
+border:1px solid var(--border);
+border-radius:18px;
+padding:1.6rem;
+transition:0.25s;
+cursor:pointer;
+}
+
+.pcard:hover{
+transform:translateY(-5px);
+border-color:rgba(232,98,26,0.35);
+box-shadow:0 14px 30px rgba(232,98,26,0.08);
+}
+
+.pcard-icon{
+width:48px;
+height:48px;
+border-radius:14px;
+background:#fff4eb;
+color:var(--accent);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:700;
+margin-bottom:1rem;
+}
+
+.pcard-name{
+font-family:'Fraunces',serif;
+font-size:1.05rem;
+margin-bottom:0.5rem;
+}
+
+.pcard-desc{
+color:var(--muted);
+font-size:0.78rem;
+line-height:1.8;
+margin-bottom:1.1rem;
+}
+
+.pcard-tags{
+display:flex;
+gap:0.45rem;
+flex-wrap:wrap;
+}
+
+.ptag{
+background:var(--tag-bg);
+color:var(--tag-color);
+padding:0.22rem 0.55rem;
+border-radius:7px;
+font-size:0.62rem;
+font-weight:700;
+letter-spacing:0.05em;
+text-transform:uppercase;
+}
+
+/* ABOUT */
+
+.about-box{
+background:var(--white);
+border:1px solid var(--border);
+border-radius:22px;
+padding:2rem;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:2rem;
+}
+
+.about-text{
+font-size:0.88rem;
+line-height:1.9;
+color:var(--muted);
+}
+
+.about-text strong{
+color:var(--ink);
+}
+
+.skills-list{
+display:flex;
+flex-direction:column;
+gap:0.8rem;
+}
+
+.skill-name{
+font-size:0.75rem;
+font-weight:700;
+margin-bottom:0.25rem;
+}
+
+.skill-bar{
+height:5px;
+background:var(--border);
+border-radius:999px;
+overflow:hidden;
+}
+
+.skill-fill{
+height:100%;
+background:var(--accent);
+border-radius:999px;
+}
+
+/* CONTACT */
+
+.contact-box{
+background:var(--accent);
+border-radius:24px;
+padding:3rem 2rem;
+text-align:center;
+}
+
+.contact-box h2{
+font-family:'Fraunces',serif;
+font-size:2rem;
+color:#fff;
+margin-bottom:0.6rem;
+}
+
+.contact-box p{
+color:rgba(255,255,255,0.8);
+line-height:1.8;
+font-size:0.9rem;
+margin-bottom:1.7rem;
+}
+
+.contact-links{
+display:flex;
+justify-content:center;
+gap:0.8rem;
+flex-wrap:wrap;
+}
+
+.clink{
+text-decoration:none;
+padding:0.7rem 1.2rem;
+border-radius:999px;
+border:1.5px solid rgba(255,255,255,0.25);
+background:rgba(255,255,255,0.12);
+color:#fff;
+font-size:0.8rem;
+font-weight:600;
+transition:0.2s;
+}
+
+.clink:hover{
+background:rgba(255,255,255,0.2);
+}
+
+.clink.white{
+background:#fff;
+color:var(--accent);
+border-color:#fff;
+}
+
+/* FOOTER */
+
+.footer{
+border-top:1px solid var(--border);
+padding:1.4rem 2.5rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:0.72rem;
+color:var(--muted);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:700px){
+
+.hero{
+grid-template-columns:1fr;
+}
+
+.hero-visual{
+display:none;
+}
+
+.stats{
+flex-wrap:wrap;
+}
+
+.stat{
+width:50%;
+}
+
+.about-box{
+grid-template-columns:1fr;
+}
+
+.footer{
+flex-direction:column;
+gap:0.5rem;
+text-align:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="port">
+
+<!-- NAVBAR -->
+
+<nav class="nav">
+
+<div class="nav-logo">
+mantasha.
+</div>
+
+<div class="nav-links">
+<a href="#projects">Projects</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+<!-- HERO -->
+
+<div class="hero-wrap">
+
+<div class="hero">
+
+<div>
+
+<div class="hero-tag">
+<div class="blink"></div>
+Available for freelance projects
+</div>
+
+<h1>
+Hi, I'm <br>
+Mantasha
+</h1>
+
+<p class="hero-sub">
+Front-End Learner & Creative Builder
+</p>
+
+<p class="hero-desc">
+I build modern, interactive, and user-friendly web experiences — from event tools and productivity apps to creative digital platforms designed with clean code and thoughtful design.
+</p>
+
+<div class="hero-btns">
+
+<button class="btn-fill" onclick="document.getElementById('projects').scrollIntoView()">
+View Projects
+</button>
+
+<button class="btn-outline" onclick="document.getElementById('contact').scrollIntoView()">
+Contact Me
+</button>
+
+</div>
+
+</div>
+
+<div class="hero-visual">
+<img src="a3902efc-3e43-4eba-828f-26db123c2338.png" alt="Mantasha"style="width:320px; max-width:100%; height:auto;">
+</div>
+
+</div>
+
+</div>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<div class="stat-num">5</div>
+<div class="stat-label">Projects Built</div>
+</div>
+
+<div class="stat">
+<div class="stat-num">100%</div>
+<div class="stat-label">Client Focused</div>
+</div>
+
+<div class="stat">
+<div class="stat-num">HTML</div>
+<div class="stat-label">CSS · JS</div>
+</div>
+
+<div class="stat">
+<div class="stat-num">24/7</div>
+<div class="stat-label">Creative Thinking</div>
+</div>
+
+</div>
+
+<!-- PROJECTS -->
+
+<section class="section" id="projects">
+
+<div class="sec-header">
+<h2 class="sec-title">Featured Projects</h2>
+<div class="sec-line"></div>
+<span class="sec-count">PORTFOLIO</span>
+</div>
+
+<div class="projects-grid">
+
+<div class="pcard">
+<div class="pcard-icon">01</div>
+<div class="pcard-name">Event Countdown</div>
+<div class="pcard-desc">
+Track important events with elegant real-time countdown experiences for launches, celebrations, and special occasions.
+</div>
+<div class="pcard-tags">
+<span class="ptag">HTML</span>
+<span class="ptag">CSS</span>
+<span class="ptag">JS</span>
+</div>
+</div>
+
+<div class="pcard">
+<div class="pcard-icon">02</div>
+<div class="pcard-name">Occasion Wishes Generator</div>
+<div class="pcard-desc">
+Create thoughtful messages and beautifully styled digital wishes for special moments and celebrations.
+</div>
+<div class="pcard-tags">
+<span class="ptag">HTML</span>
+<span class="ptag">CSS</span>
+<span class="ptag">JS</span>
+</div>
+</div>
+
+<div class="pcard">
+<div class="pcard-icon">03</div>
+<div class="pcard-name">Task Manager</div>
+<div class="pcard-desc">
+A clean productivity application for organising tasks, tracking progress, and improving workflow.
+</div>
+<div class="pcard-tags">
+<span class="ptag">HTML</span>
+<span class="ptag">CSS</span>
+<span class="ptag">JS</span>
+</div>
+</div>
+
+<div class="pcard">
+<div class="pcard-icon">04</div>
+<div class="pcard-name">Smart Calculator</div>
+<div class="pcard-desc">
+A sleek and responsive calculator designed for smooth interactions and fast calculations.
+</div>
+<div class="pcard-tags">
+<span class="ptag">HTML</span>
+<span class="ptag">CSS</span>
+<span class="ptag">JS</span>
+</div>
+</div>
+
+<div class="pcard">
+<div class="pcard-icon">05</div>
+<div class="pcard-name">Career Guidance Platform</div>
+<div class="pcard-desc">
+A platform helping students and professionals explore career paths and future opportunities confidently.
+</div>
+<div class="pcard-tags">
+<span class="ptag">HTML</span>
+<span class="ptag">CSS</span>
+<span class="ptag">JS</span>
+<span class="ptag">Featured</span>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<div class="sec-header">
+<h2 class="sec-title">About Me</h2>
+<div class="sec-line"></div>
+</div>
+
+<div class="about-box">
+
+<div class="about-text">
+
+<p>
+Hey! I'm <strong>Mantasha</strong> — An aspiring front-end developer passionate about clean and interactive websites.
+</p>
+
+<br>
+
+<p>
+<p>
+My journey into web development started with learning HTML, CSS, and JavaScript, and every project continues to help me improve my creativity, design thinking, and coding skills.
+</p>
+</p>
+
+<br>
+
+<p>
+<p>
+I enjoy creating simple, clean, and user-friendly websites while learning more about responsive design and modern web development.
+</p>
+
+<br>
+
+<p>
+Currently exploring advanced JavaScript concepts and working on more interactive web experiences.
+</p>
+
+</div>
+
+<div>
+
+<p style="font-size:0.72rem;font-weight:700;letter-spacing:0.08em;color:var(--muted);text-transform:uppercase;margin-bottom:1rem;">
+Skills
+</p>
+
+<div class="skills-list">
+
+<div>
+<div class="skill-name">HTML</div>
+<div class="skill-bar">
+<div class="skill-fill" style="width:90%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-name">CSS</div>
+<div class="skill-bar">
+<div class="skill-fill" style="width:82%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-name">JavaScript</div>
+<div class="skill-bar">
+<div class="skill-fill" style="width:72%"></div>
+</div>
+</div>
+
+<div>
+<div class="skill-name">UI / UX Thinking</div>
+<div class="skill-bar">
+<div class="skill-fill" style="width:70%"></div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<div class="contact-box">
+
+<h2>
+Let's Work Together
+</h2>
+
+<p>
+Have a project idea or looking for a developer?<br>
+Feel free to connect and collaborate.
+</p>
+
+<div class="contact-links">
+
+<a href="mailto:the.coding.divaa@gmail.com" class="clink white">
+Email Me
+</a>
+
+
+<a href="https://instagram.com/the.coding.diva"  class="clink">
+Instagram
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<span>
+© 2026 Mantasha
+</span>
+
+<span>
+Crafted with creativity and clean code.
+</span>
+
+</footer>
+
+</div>
+
+</body>
+</html>
